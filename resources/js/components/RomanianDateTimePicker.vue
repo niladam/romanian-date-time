@@ -42,13 +42,9 @@
                 type:    Boolean,
                 default: false,
             },
-            enableTime:     {
-                type:    Boolean,
-                default: false,
-            },
             enableSeconds:  {
                 type:    Boolean,
-                default: true,
+                default: false,
             }
         },
 
@@ -69,25 +65,31 @@
                     time_24hr:     true,
                     locale:        Romanian,
                     onReady: function(_, __, fp) {
-                      fp.calendarContainer.classList.add('romanian-date-time')
-                      const calendarWrapper = document.querySelector('.flatpickr-wrapper')
-                      calendarWrapper.classList.add('romanian-date-time')
+                        fp.calendarContainer.classList.add('romanian-date-time')
                     }
                 })
             })
         },
-
+        computed: {
+            enableTime() {
+                if (this.field.options) {
+                    try {
+                        let enableTime = this.field.options.enableTime;
+                        if (enableTime) {
+                            return true;
+                        }
+                    } catch (e) {
+                        // console.warn(e)
+                    }
+                }
+                return false
+            },
+        },
         methods: {
             onChange() {
                 this.$emit('change', this.$refs.romanianDatepickerInput.value)
             },
 
-            enableTime() {
-                return this.getOption('enableTime')
-            },
-            enableSeconds() {
-                return this.getOption('enableSeconds')
-            }
         },
     }
 </script>

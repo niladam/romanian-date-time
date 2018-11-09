@@ -40,7 +40,9 @@ class RomanianDateTime extends DateTime
     public function enableTime()
     {
         return $this->withMeta([
-            'enableTime' => true,
+            'options' => [
+                'enableTime' => true,
+            ]
         ]);
     }
 }

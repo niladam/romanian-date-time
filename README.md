@@ -18,7 +18,7 @@ composer require niladam/romanian-date-time
 
 ## Usage
 
-The API is exactly the same as with [Nova's default `DateTime` Field](https://nova.laravel.com/docs/1.0/resources/fields.html#datetime-field)
+The API is almost the same as with [Nova's default `DateTime` Field](https://nova.laravel.com/docs/1.0/resources/fields.html#datetime-field) except for the `enableTime()` function which enables the time picker which is disabled by default.
 
 Use `RomanianDateTime` class instead of `DateTime` directly or use it like an alias in the below example in order to not refactor too much.
 
@@ -81,59 +81,16 @@ class User extends Resource
                     ->updateRules('nullable', 'string', 'min:6'),
 
             DateTime::make(__('Created at'), 'created_at')
-                    ->format('DD.MM.YYYY HH:mm:ss')
+                    ->format('DD.MM.YYYY')
                     ->creationRules('required', 'date')
                     ->sortable(),
 
             DateTime::make(__('Updated at'), 'updated_at')
                     ->format('DD.MM.YYYY HH:mm:ss')
+                    ->enableTime()
                     ->updateRules('required', 'date')
                     ->hideFromIndex(),
         ];
-    }
-
-    /**
-     * Get the cards available for the request.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function cards(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the filters available for the resource.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function filters(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the lenses available for the resource.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function lenses(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function actions(Request $request)
-    {
-        return [];
     }
 }
 
@@ -141,4 +98,4 @@ class User extends Resource
 
 ## Thanks
 
-This package has been originally built by [Klemen Tušar](https://github.com/techouse/slovenian-date-time)
+This package uses parts from the one originally built by [Klemen Tušar](https://github.com/techouse/slovenian-date-time)

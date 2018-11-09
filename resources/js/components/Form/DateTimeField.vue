@@ -48,12 +48,6 @@
 
                 return this.defaultFlatpickrFormat
             },
-            enableTime() {
-              return this.getOption('enableTime')
-            },
-            enableSeconds() {
-              return this.getOption('enableSeconds')
-            }
         },
 
         methods: {

@@ -31,4 +31,16 @@ class RomanianDateTime extends DateTime
             $model->{$attribute} = Carbon::parse($request[$requestAttribute]);
         }
     }
+
+    /**
+     * Enable the time picker
+     *
+     * @return  $this
+     */
+    public function enableTime()
+    {
+        return $this->withMeta([
+            'enableTime' => true,
+        ]);
+    }
 }

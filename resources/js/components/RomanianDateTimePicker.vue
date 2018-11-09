@@ -44,7 +44,7 @@
             },
             enableTime:     {
                 type:    Boolean,
-                default: true,
+                default: false,
             },
             enableSeconds:  {
                 type:    Boolean,
@@ -81,6 +81,13 @@
             onChange() {
                 this.$emit('change', this.$refs.romanianDatepickerInput.value)
             },
+
+            enableTime() {
+                return this.getOption('enableTime')
+            },
+            enableSeconds() {
+                return this.getOption('enableSeconds')
+            }
         },
     }
 </script>

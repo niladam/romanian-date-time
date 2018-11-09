@@ -18,7 +18,7 @@ composer require niladam/romanian-date-time
 
 ## Usage
 
-The API is almost the same as with [Nova's default `DateTime` Field](https://nova.laravel.com/docs/1.0/resources/fields.html#datetime-field) except for the `enableTime()` function which enables the time picker which is disabled by default.
+The API is the same as with [Nova's default `DateTime` Field](https://nova.laravel.com/docs/1.0/resources/fields.html#datetime-field)
 
 Use `RomanianDateTime` class instead of `DateTime` directly or use it like an alias in the below example in order to not refactor too much.
 
@@ -80,14 +80,8 @@ class User extends Resource
                     ->creationRules('required', 'string', 'min:6')
                     ->updateRules('nullable', 'string', 'min:6'),
 
-            DateTime::make(__('Created at'), 'created_at')
-                    ->format('DD.MM.YYYY')
-                    ->creationRules('required', 'date')
-                    ->sortable(),
-
             DateTime::make(__('Updated at'), 'updated_at')
                     ->format('DD.MM.YYYY HH:mm:ss')
-                    ->enableTime()
                     ->updateRules('required', 'date')
                     ->hideFromIndex(),
         ];
@@ -98,4 +92,4 @@ class User extends Resource
 
 ## Thanks
 
-This package uses parts from the one originally built by [Klemen Tušar](https://github.com/techouse/slovenian-date-time)
+This package uses parts from the one originally built by [Klemen Tušar](https://github.com/techouse/slovenian-date-time).

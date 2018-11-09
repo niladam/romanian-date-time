@@ -65,15 +65,6 @@
                 }
             },
 
-            /*
-             * Get the option passed to the field
-             */
-            getOption(name) {
-              const option = this.filter.options.find(o => o.name === name)
-              if (!option) return false
-              return option.value
-            },
-
             /**
              * Update the field's internal value when it's value changes
              */

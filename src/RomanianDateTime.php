@@ -34,15 +34,15 @@ class RomanianDateTime extends DateTime
 
     /**
      * Enable the time picker
-     *
+     * - disabled for now.
      * @return  $this
      */
-    public function enableTime()
-    {
-        return $this->withMeta([
-            'options' => [
-                'enableTime' => true,
-            ]
-        ]);
-    }
+    // public function enableTime()
+    // {
+    //     return $this->withMeta([
+    //         'options' => [
+    //             'enableTime' => true,
+    //         ]
+    //     ]);
+    // }
 }

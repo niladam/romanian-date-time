@@ -42,9 +42,13 @@
                 type:    Boolean,
                 default: false,
             },
+            enableTime:     {
+                type:    Boolean,
+                default: true,
+            },
             enableSeconds:  {
                 type:    Boolean,
-                default: false,
+                default: true,
             }
         },
 
@@ -69,21 +73,6 @@
                     }
                 })
             })
-        },
-        computed: {
-            enableTime() {
-                if (this.field.options) {
-                    try {
-                        let enableTime = this.field.options.enableTime;
-                        if (enableTime) {
-                            return true;
-                        }
-                    } catch (e) {
-                        // console.warn(e)
-                    }
-                }
-                return false
-            },
         },
         methods: {
             onChange() {

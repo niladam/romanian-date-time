@@ -202,18 +202,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
 
-        /*
-         * Get the option passed to the field
-         */
-        getOption: function getOption(name) {
-            var option = this.filter.options.find(function (o) {
-                return o.name === name;
-            });
-            if (!option) return false;
-            return option.value;
-        },
-
-
         /**
          * Update the field's internal value when it's value changes
          */
@@ -325,9 +313,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: Boolean,
             default: false
         },
+        enableTime: {
+            type: Boolean,
+            default: true
+        },
         enableSeconds: {
             type: Boolean,
-            default: false
+            default: true
         }
     },
 
@@ -355,25 +347,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
     },
 
-    computed: {
-        enableTime: function enableTime() {
-            if (this.field.options) {
-                try {
-                    // console.log(this.field.options.enableTime);
-                    var enableTime = this.field.options.enableTime;
-                    if (enableTime) {
-                        return true;
-                    }
-                } catch (e) {
-                    // console.warn(e)
-                }
-            }
-            return false;
-        },
-        enableSeconds: function enableSeconds() {
-            // return this.getOption('enableSeconds')
-        }
-    },
     methods: {
         onChange: function onChange() {
             this.$emit('change', this.$refs.romanianDatepickerInput.value);
